@@ -8,6 +8,21 @@
 using namespace std::chrono;
 using namespace std;
 //Danielle
+
+template <typename T>
+T getPreferenceInput(const std::string& nutrient) {
+    T preference;
+    std::cout << "Rate the importance of " << nutrient << " (1-5): ";
+    while (true) {
+        std::cin >> preference;
+        if (preference >= 1 && preference <= 5) {
+            return preference;
+        } else {
+            std::cout << "Invalid input. Please enter a number between 1 and 5: ";
+        }
+    }
+}
+
 void readDescription(std::istream& input, std::string& field) {
     char c;
     field.clear();
@@ -73,18 +88,18 @@ void merge(std::vector<FoodItem>& items, int left, int mid, int right)
         k++;
     }
     while (i < n1)
-         {
-         items[k] = X[i];
-         i++;
-         k++;
-         }
+    {
+        items[k] = X[i];
+        i++;
+        k++;
+    }
     while (j < n2)
     {
-     items[k] = Y[j];
+        items[k] = Y[j];
         j++;
-         k++;
-        }
-     }
+        k++;
+    }
+}
 
 
 void mergeSort(std::vector<FoodItem>& items, int left, int right)
@@ -104,21 +119,29 @@ int main()
 
     UserPreferences userPrefs{};
 
-    std::cout << "Rank the following options based on what’s most important to you using 1-5 \n";
-    userPrefs.vitaminA = getPreferenceInput("Foods High in Vitamin A");
-    userPrefs.vitaminC = getPreferenceInput("Foods High in Vitamin C");
-    userPrefs.fiber = getPreferenceInput("Foods High in Fiber");
-    userPrefs.calcium = getPreferenceInput("Foods High in Calcium");
-    userPrefs.protein = getPreferenceInput("Foods High in Protein");
-    userPrefs.monosaturatedFat = getPreferenceInput("Foods High in Monosaturated Fats");
-    userPrefs.sodium = getPreferenceInput("Foods Low in Sodium");
-    userPrefs.iron = getPreferenceInput("Foods High in Iron");
-    userPrefs.cholesterol = getPreferenceInput("Foods Low in Cholesterol");
+    std::cout << "Rank the following options based on what’s most important to you using 1-5 (5 being the most important) \n";
+    userPrefs.vitaminA = getPreferenceInput<int>("Foods High in Vitamin A");
+    userPrefs.vitaminC = getPreferenceInput<float>("Foods High in Vitamin C");
+    userPrefs.fiber = getPreferenceInput<float>("Foods High in Fiber");
+    userPrefs.calcium = getPreferenceInput<int>("Foods High in Calcium");
+    userPrefs.protein = getPreferenceInput<float>("Foods High in Protein");
+    userPrefs.monosaturatedFat = getPreferenceInput<float>("Foods High in Monosaturated Fats");
+    userPrefs.sodium = getPreferenceInput<int>("Foods Low in Sodium");
+    userPrefs.iron = getPreferenceInput<float>("Foods High in Iron");
+    userPrefs.cholesterol = getPreferenceInput<int>("Foods Low in Cholesterol");
+    userPrefs.sugar = getPreferenceInput<float>("Foods Low in Sugar");
+
 
 
     std::vector<FoodItem> foodItems; //we are loading here boys
 
     std::ifstream inFile("food_data.csv");
+    if (!inFile.is_open()) {
+        std::cerr << "Error opening file." << std::endl;
+        return 1;
+    }
+
+
     std::string line;
 
     // Skip the header line
@@ -147,21 +170,24 @@ int main()
         iss >> item.monosaturatedFat; iss.ignore();
         iss >> item.sodium; iss.ignore();
         iss >> item.iron; iss.ignore();
-        iss >> temp; // Skip the last cholesterol column if it's not needed
+        iss >> item.sugar; iss.ignore();
+
 
         foodItems.push_back(item);
     }
 
-/*====================Conversion to Grams???====================*/
-    for (auto& item : foodItems) {
-        convertNutrientValuesToGrams(item);
-    }
+///*====================Conversion to Grams???====================*/
+//    for (auto& item : foodItems) {
+//        convertNutrientValuesToGrams(item);
+//    }
 
     // Calculate compatibility for each food item
     for (auto& item : foodItems) {
         item.compatibility = calculateCompatibility(item, userPrefs);
     }
+
     auto mergeItems = foodItems;
+
     auto startQuick = high_resolution_clock::now();
     quickSort(foodItems, 0, foodItems.size());
     auto stopQuick = high_resolution_clock::now();

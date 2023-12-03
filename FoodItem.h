@@ -6,16 +6,17 @@
 
 struct FoodItem {
     std::string name;
-    int cholesterol;
-    int vitaminA;
-    float vitaminC;
-    float fiber;
-    int calcium;
-    float protein;
-    float monosaturatedFat;
-    int sodium;
-    float iron;
-    float compatibility;
+    float cholesterol = 0;
+    float vitaminA = 0;
+    float vitaminC = 0;
+    float fiber = 0;
+    float calcium = 0;
+    float protein = 0;
+    float monosaturatedFat = 0;
+    float sodium = 0;
+    float iron = 0;
+    float sugar = 0;
+    float compatibility = 0;
 };
 
 struct UserPreferences {
@@ -28,6 +29,7 @@ struct UserPreferences {
     float monosaturatedFat;
     int sodium;
     float iron;
+    float sugar;
 };
 
 float calculateCompatibility(const FoodItem& item, const UserPreferences& prefs);
