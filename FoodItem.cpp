@@ -6,6 +6,7 @@ using namespace std;
 
 
 int getPreferenceInput(const std::string& nutrient) {
+    //Issue with letter being entered
     int preference;
     std::cout << "Rate the importance of " << nutrient << " (1-5): ";
     while(true) {
