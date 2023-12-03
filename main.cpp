@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 using namespace std;
-
+//Danielle
 void readDescription(std::istream& input, std::string& field) {
     char c;
     field.clear();
