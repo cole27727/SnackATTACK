@@ -161,14 +161,18 @@ int main()
     for (auto& item : foodItems) {
         item.compatibility = calculateCompatibility(item, userPrefs);
     }
-    auto start = high_resolution_clock::now();
     auto mergeItems = foodItems;
-    mergeSort(mergeItems, 0, foodItems.size());
+    auto startQuick = high_resolution_clock::now();
     quickSort(foodItems, 0, foodItems.size());
-    
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
-    cout << "Quick Sort Time: " << duration.count() << " microseconds" << endl;
+    auto stopQuick = high_resolution_clock::now();
+    auto durationQuick = duration_cast<microseconds>(stopQuick - startQuick);
+    cout << "\n" << "Quick Sort Time: " << durationQuick.count() << " microseconds" << endl;
+
+    auto startMerge = high_resolution_clock::now();
+    mergeSort(mergeItems, 0, foodItems.size());
+    auto stopMerge = high_resolution_clock::now();
+    auto durationMerge = duration_cast<microseconds>(stopMerge - startMerge);
+    cout << "Merge Sort Time: " << durationMerge.count() << " microseconds" << "\n" << "\n";
 
     // Print the compatibility of each food item
     int j = 1;
