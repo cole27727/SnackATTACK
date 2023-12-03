@@ -43,6 +43,58 @@ void quickSort(std::vector<FoodItem>& items, int low, int high) {
         quickSort(items, pi + 1, high);
     }
 }
+void merge(std::vector<FoodItem>& items, int left, int mid, int right)
+{
+    int n1 = mid-left+1;
+    int n2 = right -mid;
+    FoodItem X[n1], Y[n2];
+    for(int i = 0; i<n1; i++)
+        X[i] = items[left+i];
+    for(int j =0; j<n2;j++)
+        Y[j] = items[mid+1+j];
+    int i, j,k;
+    i=0;
+    j=0;
+    k=left;
+    while (i<n1 && j<n2)
+    {
+        if (X[i].compatibility <= Y[j].compatibility)
+        {
+            items[k] = X[i];
+            i++;
+        }
+        else
+        {
+            items[k] = Y[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < n1)
+         {
+         items[k] = X[i];
+         i++;
+         k++;
+         }
+    while (j < n2)
+    {
+     items[k] = Y[j];
+        j++;
+         k++;
+        }
+     }
+
+
+void mergeSort(std::vector<FoodItem>& items, int left, int right)
+{
+    if(left< right)
+    {
+        int mid = left+ (right-left)/2;
+        mergeSort(items, left, mid);
+        mergeSort(items,mid+1, right);
+        merge(items, left, mid, right);
+    }
+}
 
 int main()
 {
@@ -108,7 +160,8 @@ int main()
         item.compatibility = calculateCompatibility(item, userPrefs);
     }
 
-    quickSort(foodItems, 0, foodItems.size());
+
+    mergeSort(foodItems, 0, foodItems.size());
     // Print the compatibility of each food item
     for (const auto& item : foodItems) {
         std::cout << "Food: " << item.name << " - Compatibility: " << item.compatibility << std::endl;

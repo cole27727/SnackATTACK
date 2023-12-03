@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(DataStructures_Project_3 main.cpp
         FoodItem.cpp
-        FoodItem.h)
+        FoodItem.h cmake-build-debug/food_data.csv)
