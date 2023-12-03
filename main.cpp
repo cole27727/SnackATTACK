@@ -162,7 +162,13 @@ int main()
         item.compatibility = calculateCompatibility(item, userPrefs);
     }
     auto start = high_resolution_clock::now();
-
+    auto mergeItems = foodItems;
+    mergeSort(mergeItems, 0, foodItems.size());
+    quickSort(foodItems, 0, foodItems.size());
+    
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Quick Sort Time: " << duration.count() << " microseconds" << endl;
 
     // Print the compatibility of each food item
     int j = 1;
