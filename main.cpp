@@ -4,8 +4,10 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <chrono>
+using namespace std::chrono;
 using namespace std;
-
+//Danielle
 void readDescription(std::istream& input, std::string& field) {
     char c;
     field.clear();
@@ -159,12 +161,14 @@ int main()
     for (auto& item : foodItems) {
         item.compatibility = calculateCompatibility(item, userPrefs);
     }
+    auto start = high_resolution_clock::now();
 
 
-    mergeSort(foodItems, 0, foodItems.size());
     // Print the compatibility of each food item
-    for (const auto& item : foodItems) {
-        std::cout << "Food: " << item.name << " - Compatibility: " << item.compatibility << std::endl;
+    int j = 1;
+    for (int i = foodItems.size(); i > foodItems.size()-10; i--) {
+        std::cout << j << ". " << foodItems[i].name << " - Compatibility: " << foodItems[i].compatibility << std::endl;
+        j++;
     }
 };
 
