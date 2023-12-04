@@ -43,6 +43,7 @@ float calculateCompatibility(const FoodItem& item, const UserPreferences& prefs)
     const float standardSugar = 50; // g
     const float standardCarbs = 300; // g
     const float standardFats = 65; // g
+    //
 
 
 
