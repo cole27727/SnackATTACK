@@ -6,10 +6,16 @@ using namespace std;
 
 
 int getPreferenceInput(const std::string& nutrient) {
+    //Issue with letter being entered
     int preference;
     std::cout << "Rate the importance of " << nutrient << " (1-5): ";
     while(true) {
         std::cin >> preference;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+            std::cout << "Invalid input. Please enter a number between 1 and 5: ";
+        } else
         if (preference >= 1 && preference <= 5) {
             return preference;
         } else {
