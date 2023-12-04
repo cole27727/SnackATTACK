@@ -81,11 +81,6 @@ int main()
             foodItems.push_back(item);
         }
 
-///*====================Conversion to Grams???====================*/
-//    for (auto& item : foodItems) {
-//        convertNutrientValuesToGrams(item);
-//    }
-
         // Calculate compatibility for each food item
         for (auto &item: foodItems) {
             item.compatibility = calculateCompatibility(item, userPrefs);
