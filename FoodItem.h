@@ -6,33 +6,37 @@
 
 struct FoodItem {
     std::string name;
-    int cholesterol;
-    int vitaminA;
-    float vitaminC;
-    float fiber;
-    int calcium;
-    float protein;
-    float monosaturatedFat;
-    int sodium;
-    float iron;
-    float compatibility;
+
+    float cholesterol = 0;
+    float vitaminA = 0;
+    float vitaminC = 0;
+    float fiber = 0;
+    float calcium = 0;
+    float protein = 0;
+    float monosaturatedFat = 0;
+    float carbs = 0;
+    float sodium = 0;
+    float iron = 0;
+    float sugar = 0;
+
+    float compatibility = 0;
 };
 
 struct UserPreferences {
     int cholesterol;
     int vitaminA;
-    float vitaminC;
-    float fiber;
+    int vitaminC;
+    int fiber;
     int calcium;
-    float protein;
-    float monosaturatedFat;
+    int protein;
+    int monosaturatedFat;
+    int carbs;
     int sodium;
-    float iron;
+    int iron;
+    int sugar;
 };
 
 float calculateCompatibility(const FoodItem& item, const UserPreferences& prefs);
-
-int getPreferenceInput(const std::string& nutrient);
 
 void convertNutrientValuesToGrams(FoodItem& item);
 

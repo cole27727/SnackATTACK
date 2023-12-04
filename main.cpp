@@ -7,7 +7,7 @@
 #include <chrono>
 using namespace std::chrono;
 using namespace std;
-//Danielle
+
 void readDescription(std::istream& input, std::string& field) {
     char c;
     field.clear();
@@ -19,6 +19,25 @@ void readDescription(std::istream& input, std::string& field) {
     else {
         input.putback(c);
         std::getline(input, field, ',');
+    }
+}
+
+int getPreferenceInput(const std::string& nutrient) {
+    int preference;
+    std::cout << "Rate the importance of " << nutrient << " (1-5): ";
+    while (true) {
+        std::cin >> preference;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+            std::cout << "Invalid input. Please enter a number between 1 and 5: ";
+        }
+        else if (preference >= 1 && preference <= 5) {
+            return preference;
+        }
+        else {
+            std::cout << "Invalid input. Please enter a number between 1 and 5: ";
+        }
     }
 }
 
@@ -111,10 +130,12 @@ int main()
     userPrefs.calcium = getPreferenceInput("Foods High in Calcium");
     userPrefs.protein = getPreferenceInput("Foods High in Protein");
     userPrefs.monosaturatedFat = getPreferenceInput("Foods High in Monosaturated Fats");
-    userPrefs.sodium = getPreferenceInput("Foods Low in Sodium");
+    userPrefs.carbs = getPreferenceInput("Foods High in Carbs");
     userPrefs.iron = getPreferenceInput("Foods High in Iron");
-    userPrefs.cholesterol = getPreferenceInput("Foods Low in Cholesterol");
 
+    userPrefs.cholesterol = getPreferenceInput("Foods Low in Cholesterol");
+    userPrefs.sugar = getPreferenceInput("Foods Low in Sugar");
+    userPrefs.sodium = getPreferenceInput("Foods Low in Sodium");
 
     std::vector<FoodItem> foodItems; //we are loading here boys
 
@@ -147,15 +168,17 @@ int main()
         iss >> item.monosaturatedFat; iss.ignore();
         iss >> item.sodium; iss.ignore();
         iss >> item.iron; iss.ignore();
-        iss >> temp; // Skip the last cholesterol column if it's not needed
+        iss >> item.sugar; iss.ignore();
+        iss >> item.carbs; iss.ignore();
+
 
         foodItems.push_back(item);
     }
 
-/*====================Conversion to Grams???====================*/
-    for (auto& item : foodItems) {
-        convertNutrientValuesToGrams(item);
-    }
+///*====================Conversion to Grams???====================*/
+//    for (auto& item : foodItems) {
+//        convertNutrientValuesToGrams(item);
+//    }
 
     // Calculate compatibility for each food item
     for (auto& item : foodItems) {
