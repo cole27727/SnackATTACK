@@ -132,16 +132,16 @@ int main()
                 if (num >= 1 && num <= 10) {
                     int num = stoi(userOption) - 1;
                     cout << "Name: " << foodItems[foodItems.size() - num].name << endl;
-                    cout << "Cholesterol       | " << "   " << foodItems[foodItems.size() - num].cholesterol << " grams\n";
-                    cout << "Vitamin A         | " << "   " << foodItems[foodItems.size() - num].vitaminA << " grams\n";
-                    cout << "Vitamin C         | " << "   " << foodItems[foodItems.size() - num].vitaminC << " grams\n";
+                    cout << "Cholesterol       | " << "   " << foodItems[foodItems.size() - num].cholesterol << " milligrams\n";
+                    cout << "Vitamin A         | " << "   " << foodItems[foodItems.size() - num].vitaminA << " micrograms\n";
+                    cout << "Vitamin C         | " << "   " << foodItems[foodItems.size() - num].vitaminC << " milligrams\n";
                     cout << "Fiber             | " << "   " << foodItems[foodItems.size() - num].fiber << " grams\n";
                     cout << "Calcium           | " << "   " << foodItems[foodItems.size() - num].calcium << " grams\n";
                     cout << "Protein           | " << "   " << foodItems[foodItems.size() - num].protein << " grams\n";
                     cout << "MonosaturatedFat  | " << "   " << foodItems[foodItems.size() - num].monosaturatedFat << " grams\n";
                     cout << "Carbohydrates     | " << "   " << foodItems[foodItems.size() - num].carbs << " grams\n";
-                    cout << "Sodium            | " << "   " << foodItems[foodItems.size() - num].sodium << " grams\n";
-                    cout << "Iron              | " << "   " << foodItems[foodItems.size() - num].iron << " grams\n";
+                    cout << "Sodium            | " << "   " << foodItems[foodItems.size() - num].sodium << " milligrams\n";
+                    cout << "Iron              | " << "   " << foodItems[foodItems.size() - num].iron << " milligrams\n";
                     cout << "Sugar             | " << "   " << foodItems[foodItems.size() - num].sugar << " grams\n";
 
                     continue;
