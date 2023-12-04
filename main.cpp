@@ -18,7 +18,7 @@ int main()
 
         UserPreferences userPrefs{};
 
-        cout << "Rank the following options based on what’s most important to you using 1-5 \n";
+        cout << "Rank the following options based on what’s most important to you using 1-5 (1 being least important and 5 being most important) \n";
         userPrefs.vitaminA = getPreferenceInput("Foods High in Vitamin A");
         userPrefs.vitaminC = getPreferenceInput("Foods High in Vitamin C");
         userPrefs.fiber = getPreferenceInput("Foods High in Fiber");
