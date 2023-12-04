@@ -1,11 +1,11 @@
 #ifndef FOODITEM_H
 #define FOODITEM_H
 #include <vector>
-
 #include <string>
+using namespace std;
 
 struct FoodItem {
-    std::string name;
+    string name;
 
     float cholesterol = 0;
     float vitaminA = 0;
@@ -39,9 +39,5 @@ struct UserPreferences {
 float calculateCompatibility(const FoodItem& item, const UserPreferences& prefs);
 
 void convertNutrientValuesToGrams(FoodItem& item);
-
-//Quick Sort
-int partition(std::vector<FoodItem>& items, int low, int high);
-//Merge Sort
 
 #endif // FOODITEM_H

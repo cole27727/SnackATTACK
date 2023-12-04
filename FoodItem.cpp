@@ -1,7 +1,4 @@
 #include "FoodItem.h"
-#include <string>
-#include <iostream>
-#include <iomanip>
 using namespace std;
 
 void convertNutrientValuesToGrams(FoodItem& item) {
@@ -31,10 +28,4 @@ float calculateCompatibility(const FoodItem& item, const UserPreferences& prefs)
     score -= item.sugar * prefs.sugar;
 
     return score;
-}
-
-void printNutrition(const std::vector<FoodItem>& foodItems, int preference){
-    for (const auto& item : foodItems) {
-    }
-
 }
