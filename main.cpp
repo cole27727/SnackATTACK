@@ -237,18 +237,18 @@ int main()
                 if (num >= 1 && num <= 10) {
                     int num = stoi(userOption) - 1;
                     cout << "Name: " << foodItems[foodItems.size() - num].name << endl;
-                    cout << "Cholesterol       | " << "   " << foodItems[foodItems.size() - num].cholesterol << endl;
-                    cout << "Vitamin A         | " << "   " << foodItems[foodItems.size() - num].vitaminA << endl;
-                    cout << "Vitamin C         | " << "   " << foodItems[foodItems.size() - num].vitaminC << endl;
-                    cout << "Fiber             | " << "   " << foodItems[foodItems.size() - num].fiber << endl;
-                    cout << "Calcium           | " << "   " << foodItems[foodItems.size() - num].calcium << endl;
-                    cout << "Protein           | " << "   " << foodItems[foodItems.size() - num].protein << endl;
-                    cout << "MonosaturatedFat  | " << "   " << foodItems[foodItems.size() - num].monosaturatedFat << endl;
-                    cout << "Protein           | " << "   " << foodItems[foodItems.size() - num].protein << endl;
-                    cout << "Carbohydrates     | " << "   " << foodItems[foodItems.size() - num].carbs << endl;
-                    cout << "Sodium            | " << "   " << foodItems[foodItems.size() - num].sodium << endl;
-                    cout << "Iron              | " << "   " << foodItems[foodItems.size() - num].iron << endl;
-                    cout << "Sugar             | " << "   " << foodItems[foodItems.size() - num].sugar << endl;
+                    cout << "Cholesterol       | " << "   " << foodItems[foodItems.size() - num].cholesterol << " grams\n";
+                    cout << "Vitamin A         | " << "   " << foodItems[foodItems.size() - num].vitaminA << " grams\n";
+                    cout << "Vitamin C         | " << "   " << foodItems[foodItems.size() - num].vitaminC << " grams\n";
+                    cout << "Fiber             | " << "   " << foodItems[foodItems.size() - num].fiber << " grams\n";
+                    cout << "Calcium           | " << "   " << foodItems[foodItems.size() - num].calcium << " grams\n";
+                    cout << "Protein           | " << "   " << foodItems[foodItems.size() - num].protein << " grams\n";
+                    cout << "MonosaturatedFat  | " << "   " << foodItems[foodItems.size() - num].monosaturatedFat << " grams\n";
+                    cout << "Carbohydrates     | " << "   " << foodItems[foodItems.size() - num].carbs << " grams\n";
+                    cout << "Sodium            | " << "   " << foodItems[foodItems.size() - num].sodium << " grams\n";
+                    cout << "Iron              | " << "   " << foodItems[foodItems.size() - num].iron << " grams\n";
+                    cout << "Sugar             | " << "   " << foodItems[foodItems.size() - num].sugar << " grams\n";
+
                     continue;
                 }
                 else {
